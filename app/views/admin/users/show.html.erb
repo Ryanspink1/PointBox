@@ -1,0 +1,11 @@
+<h1>Admin page for User <%= @user.username %></h1>
+Total Points: <%= @user.points.count %><br>
+Points Available: <%= @user.redeemed.count %><br>
+Points Redeemed: <%= @user.unredeemed.count %><br>
+Total Rewards: <%= @user.rewards.count %><br>
+Rewards Available: <%= @user.rewards.available.count %><br>
+Rewards Taken: <%= @user.rewards.not_available.count %><br>
+
+<%= link_to "Add a point", admin_user_points_path(@user), method: :post %>
+<%= link_to "Delete a point", admin_user_point_path(@user), method: :delete %>
+<%= link_to "Add a reward", admin_user_rewards_path(@user), method: :post %>

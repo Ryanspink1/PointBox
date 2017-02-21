@@ -1,0 +1,21 @@
+<h1 class='greeting'>Welcome <%= current_user.username%>!</h1>
+  <div class='user_info'>
+    <p>
+      Points <%= current_user.points.count %><br>
+      Unredeemed: <%= current_user.unredeemed.count %><br>
+      Redeemed: <%= current_user.redeemed.count %><br>
+      <%= link_to "Redeem Reward", users_reward_path, method: :put %><br>
+
+      <% current_user.rewards_owned.each do |reward| %>
+        <ul>
+          Reward: <%= reward.name %>
+        </ul>
+      <% end %>
+    </p>
+  </div>
+
+
+
+
+
+<%= button_to "Logout", logout_path, method: :delete %>
